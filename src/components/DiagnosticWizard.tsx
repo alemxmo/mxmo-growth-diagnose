@@ -153,10 +153,6 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
 
   const handleOptionSelect = (value: string) => {
     questionForm.setValue('answer', value);
-    // Auto-submit após 1 segundo para dar feedback visual
-    setTimeout(() => {
-      handleQuestionSubmit({ answer: value });
-    }, 800);
   };
 
   const handleBack = () => {
@@ -284,11 +280,11 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
                               <label 
                                 key={option.value} 
                                 htmlFor={`option-${option.value}-${currentStep}`}
-                                className={`flex items-start space-x-3 p-3 sm:p-4 border rounded-lg transition-all cursor-pointer group block ${
-                                  field.value === option.value 
-                                    ? 'border-mxmo-gold bg-mxmo-gold/10 shadow-md' 
-                                    : 'border-mxmo-navy/20 hover:bg-mxmo-champagne/30'
-                                }`}
+                                 className={`flex items-start space-x-3 p-3 sm:p-4 border rounded-lg transition-all cursor-pointer group block ${
+                                   field.value === option.value 
+                                     ? 'border-mxmo-gold bg-mxmo-gold/20 shadow-lg' 
+                                     : 'border-mxmo-navy/20 hover:bg-mxmo-navy/5'
+                                 }`}
                                 onClick={() => handleOptionSelect(option.value)}
                               >
                                 <RadioGroupItem 
@@ -325,24 +321,13 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
               INICIAR DIAGNÓSTICO
             </Button>
           ) : (
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              {currentStep > 1 && (
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={handleBack}
-                  className="w-full sm:flex-1 text-sm sm:text-base"
-                >
-                  VOLTAR
-                </Button>
-              )}
-              <Button 
-                onClick={questionForm.handleSubmit(handleQuestionSubmit)}
-                className="w-full sm:flex-1 premium-button bg-gradient-gold text-mxmo-navy text-sm sm:text-base py-3"
-              >
-                {currentStep === questions.length ? 'ENVIAR MEU DIAGNÓSTICO' : 'PRÓXIMA'}
-              </Button>
-            </div>
+            <Button 
+              onClick={questionForm.handleSubmit(handleQuestionSubmit)}
+              disabled={!questionForm.watch('answer')}
+              className="w-full premium-button bg-gradient-gold text-mxmo-navy text-sm sm:text-base py-3 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {currentStep === questions.length ? 'ENVIAR MEU DIAGNÓSTICO' : 'PRÓXIMA'}
+            </Button>
           )}
         </div>
       </div>
