@@ -280,10 +280,10 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
                               <label 
                                 key={option.value} 
                                 htmlFor={`option-${option.value}-${currentStep}`}
-                                 className={`flex items-start space-x-3 p-3 sm:p-4 border rounded-lg transition-all cursor-pointer group block ${
+                                 className={`flex items-start space-x-3 p-3 sm:p-4 rounded-lg transition-all cursor-pointer ${
                                    field.value === option.value 
-                                     ? 'border-mxmo-gold bg-mxmo-gold/20 shadow-lg' 
-                                     : 'border-mxmo-navy/20 hover:bg-mxmo-navy/5'
+                                     ? 'diagnostic-option-selected' 
+                                     : 'diagnostic-option-unselected'
                                  }`}
                                 onClick={() => handleOptionSelect(option.value)}
                               >

@@ -198,4 +198,13 @@
   .executive-badge {
     @apply inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full border backdrop-blur-sm;
   }
+  
+  /* Diagnostic wizard specific styles */
+  .diagnostic-option-selected {
+    @apply border-2 border-orange-500 bg-orange-50 shadow-lg;
+  }
+  
+  .diagnostic-option-unselected {
+    @apply border border-gray-200 hover:bg-gray-50;
+  }
 }
