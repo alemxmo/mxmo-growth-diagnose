@@ -277,14 +277,13 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
                             className="space-y-2 sm:space-y-3"
                           >
                             {questions[currentStep - 1].options.map((option) => (
-                              <label 
+                              <div 
                                 key={option.value} 
-                                htmlFor={`option-${option.value}-${currentStep}`}
-                                 className={`flex items-start space-x-3 p-3 sm:p-4 rounded-lg transition-all cursor-pointer ${
-                                   field.value === option.value 
-                                     ? 'diagnostic-option-selected' 
-                                     : 'diagnostic-option-unselected'
-                                 }`}
+                                className={`flex items-start space-x-3 p-4 rounded-lg transition-all cursor-pointer ${
+                                  field.value === option.value 
+                                    ? 'bg-blue-50 border-2 border-blue-500 shadow-md' 
+                                    : 'bg-white border border-gray-200 hover:bg-gray-50'
+                                }`}
                                 onClick={() => handleOptionSelect(option.value)}
                               >
                                 <RadioGroupItem 
@@ -292,10 +291,10 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
                                   id={`option-${option.value}-${currentStep}`} 
                                   className="mt-1 flex-shrink-0" 
                                 />
-                                <div className="text-mxmo-navy leading-relaxed text-sm sm:text-base flex-1 min-w-0">
-                                  <span className="font-medium">{option.value})</span> {option.label}
+                                <div className="text-gray-800 leading-relaxed text-sm sm:text-base flex-1 min-w-0">
+                                  <span className="font-medium text-blue-600">{option.value})</span> {option.label}
                                 </div>
-                              </label>
+                              </div>
                             ))}
                           </RadioGroup>
                         </FormControl>
