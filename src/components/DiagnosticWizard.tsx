@@ -130,8 +130,12 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
       const questionId = questions[currentStep - 1]?.id;
       const savedAnswer = initialData.answers?.[questionId] || "";
       console.log('Loading saved answer for question:', questionId, 'answer:', savedAnswer);
+      // Só marcar visualmente se há resposta salva, senão deixar limpo
       setSelectedOption(savedAnswer);
       questionForm.reset({ answer: savedAnswer });
+    } else {
+      // Limpar seleção quando não está numa pergunta
+      setSelectedOption("");
     }
   }, [currentStep, initialData.answers]);
 
@@ -148,6 +152,8 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
     onUpdateData(newData);
 
     if (currentStep < totalSteps - 1) {
+      // Limpar seleção visual antes de ir para próxima pergunta
+      setSelectedOption("");
       setCurrentStep(currentStep + 1);
     } else {
       // Finalizar
