@@ -23,8 +23,8 @@ const PainSection = () => {
   return (
     <section className="strategic-section bg-gradient-section">
       <div className="strategic-container">
-        <div className="text-center mb-16">
-          <h2 className="h2 text-neutral-800 mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="h2 text-neutral-800 mb-4 sm:mb-6">
             Sua empresa parece ter atingido um platô?
           </h2>
           <p className="body-large text-neutral-600 max-w-3xl mx-auto">
@@ -33,7 +33,7 @@ const PainSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid gap-4 sm:gap-6 max-w-4xl mx-auto">
           {painPoints.map((point, index) => (
             <div key={index} className="pain-point group hover:border-brand-primary/20 transition-all duration-300">
               <CheckCircle className="w-6 h-6 text-brand-primary flex-shrink-0 mt-1" />

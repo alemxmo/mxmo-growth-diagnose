@@ -12,7 +12,7 @@ const HeroSection = () => {
   return (
     <section className="strategic-section bg-gradient-hero">
       <div className="strategic-container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-6">
@@ -40,8 +40,8 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            {/* Trust indicators */}
-            <div className="flex items-center gap-4 text-sm text-neutral-500">
+            {/* Trust indicators - Mobile optimized */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-sm text-neutral-500">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
                 <span>Sem cadastro demorado</span>

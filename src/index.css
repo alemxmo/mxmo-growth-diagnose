@@ -22,15 +22,15 @@
     --neutral-800: 215 25% 15%;
     --neutral-900: 215 30% 8%;
     
-    /* Strategic blue (sophisticated, trustworthy) */
-    --strategic-blue: 217 32% 17%;
-    --strategic-blue-light: 217 25% 25%;
-    --strategic-blue-lighter: 217 15% 35%;
+    /* MXMO Dark Blue/Gray (242A36) */
+    --strategic-blue: 211 25% 19%; /* 242A36 - Main dark blue */
+    --strategic-blue-light: 211 20% 30%; /* Lighter version */
+    --strategic-blue-lighter: 211 15% 40%; /* Even lighter */
     
-    /* MXMO brand accent (for CTAs only) */
-    --brand-primary: 203 89% 53%;
-    --brand-primary-hover: 203 89% 48%;
-    --brand-primary-light: 203 89% 65%;
+    /* MXMO Official Brand Colors */
+    --brand-primary: 159 130 105; /* 9F8269 - Gold/Brown */
+    --brand-primary-hover: 139 110 85; /* Darker version for hover */
+    --brand-primary-light: 223 197 174; /* DFC5AE - Light Beige/Gold */
     
     /* Semantic tokens */
     --primary: var(--strategic-blue);
@@ -132,14 +132,14 @@
     @apply bg-background text-foreground font-inter antialiased;
   }
   
-  /* Strategic typography */
+  /* Strategic typography - Mobile-first */
   h1, .h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
   
   h2, .h2 {
-    @apply text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug;
+    @apply text-xl sm:text-2xl md:text-3xl font-semibold leading-snug;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
   
@@ -155,13 +155,13 @@
     @apply text-base leading-relaxed;
   }
   
-  /* Strategic components */
+  /* Strategic components - Mobile-first */
   .strategic-section {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-12 sm:py-16 md:py-20 lg:py-24;
   }
   
   .strategic-container {
-    @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-8;
   }
   
   .strategic-card {

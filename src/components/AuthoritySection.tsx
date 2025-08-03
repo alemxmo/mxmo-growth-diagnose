@@ -23,8 +23,8 @@ const AuthoritySection = () => {
   return (
     <section className="strategic-section bg-strategic-blue text-white">
       <div className="strategic-container">
-        <div className="text-center mb-16">
-          <h2 className="h2 mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="h2 mb-4 sm:mb-6">
             Inteligência Estratégica para{" "}
             <span className="text-brand-primary-light">Transformar Negócios</span>
           </h2>
@@ -35,8 +35,8 @@ const AuthoritySection = () => {
           </p>
         </div>
 
-        {/* Credentials */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        {/* Credentials - Mobile optimized */}
+        <div className="grid gap-4 sm:grid-cols-3 sm:gap-6 mb-8 sm:mb-12">
           {credentials.map((credential, index) => {
             const Icon = credential.icon;
             return (
@@ -53,8 +53,8 @@ const AuthoritySection = () => {
           })}
         </div>
 
-        {/* Testimonial */}
-        <Card className="max-w-4xl mx-auto p-8 md:p-12 bg-white/5 border-white/10 backdrop-blur-sm">
+        {/* Testimonial - Mobile optimized */}
+        <Card className="mx-auto p-6 sm:p-8 md:p-12 bg-white/5 border-white/10 backdrop-blur-sm">
           <div className="text-center">
             <Quote className="w-12 h-12 text-brand-primary-light mx-auto mb-6" />
             <blockquote className="text-xl md:text-2xl font-medium text-white mb-6 leading-relaxed">

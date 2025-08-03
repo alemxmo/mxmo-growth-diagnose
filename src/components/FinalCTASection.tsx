@@ -41,8 +41,8 @@ const FinalCTASection = () => {
             </p>
           </div>
 
-          {/* Social proof numbers */}
-          <div className="grid grid-cols-3 gap-8 pt-8 border-t border-neutral-200">
+          {/* Social proof numbers - Mobile optimized */}
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-neutral-200">
             <div className="text-center">
               <div className="text-2xl font-bold text-brand-primary">2 min</div>
               <div className="text-sm text-neutral-600">Para completar</div>

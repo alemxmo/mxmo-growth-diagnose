@@ -30,8 +30,8 @@ const DiagnosticSection = () => {
   return (
     <section id="diagnostic-section" className="strategic-section bg-background">
       <div className="strategic-container">
-        <div className="text-center mb-16">
-          <h2 className="h2 text-neutral-800 mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="h2 text-neutral-800 mb-4 sm:mb-6">
             A clareza que você precisa está a{" "}
             <span className="text-brand-primary">7 perguntas</span>{" "}
             de distância.
@@ -43,8 +43,8 @@ const DiagnosticSection = () => {
           </p>
         </div>
 
-        {/* Benefits */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        {/* Benefits - Mobile optimized */}
+        <div className="grid gap-4 sm:grid-cols-3 sm:gap-6 mb-8 sm:mb-12">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
@@ -61,8 +61,8 @@ const DiagnosticSection = () => {
           })}
         </div>
 
-        {/* Diagnostic CTA Card */}
-        <Card className="max-w-2xl mx-auto p-8 md:p-12 text-center border-2 border-brand-primary/20 bg-gradient-to-br from-brand-primary/5 to-transparent">
+        {/* Diagnostic CTA Card - Mobile optimized */}
+        <Card className="mx-auto p-6 sm:p-8 md:p-12 text-center border-2 border-brand-primary/20 bg-gradient-to-br from-brand-primary/5 to-transparent">
           <div className="space-y-6">
             <div>
               <h3 className="h3 text-neutral-800 mb-4">
