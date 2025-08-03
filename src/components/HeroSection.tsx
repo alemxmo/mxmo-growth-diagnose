@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import MXMOLogo from "@/components/MXMOLogo";
 
 interface HeroSectionProps {
   onOpenModal: () => void;
@@ -6,9 +7,9 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
   return (
-    <section className="min-h-screen bg-white relative overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-white via-mxmo-light/5 to-mxmo-light/20 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-mxmo-light/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-mxmo-primary/5 to-mxmo-light/10"></div>
       
       {/* Content */}
       <div className="relative z-10 flex items-center min-h-screen px-4 py-8">
@@ -16,13 +17,17 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
           {/* Mobile-first layout */}
           <div className="text-center space-y-12">
             {/* MXMO Brand Header */}
-            <div className="space-y-4">
-              <div className="inline-flex items-center gap-3 px-6 py-3 bg-mxmo-light/30 rounded-full border border-mxmo-primary/20">
-                <div className="w-8 h-8 bg-mxmo-primary rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">M</span>
-                </div>
-                <span className="text-mxmo-dark font-semibold text-lg">MXMO</span>
-                <span className="text-mxmo-primary text-sm">• Diagnóstico Estratégico</span>
+            <div className="space-y-6">
+              <div className="flex justify-center">
+                <MXMOLogo 
+                  className="h-16 sm:h-20 md:h-24 w-auto" 
+                  variant="dark"
+                />
+              </div>
+              <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-mxmo-light/30 to-mxmo-primary/10 rounded-full border border-mxmo-primary/20 backdrop-blur-sm">
+                <div className="w-3 h-3 bg-mxmo-primary rounded-full animate-pulse"></div>
+                <span className="text-mxmo-dark font-semibold text-lg">Diagnóstico Estratégico</span>
+                <span className="text-mxmo-primary text-sm font-medium">• Gratuito</span>
               </div>
             </div>
 
@@ -32,7 +37,7 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
                 Descubra os{" "}
                 <span className="text-mxmo-primary relative">
                   3 gargalos invisíveis
-                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-mxmo-primary/30 rounded-full"></div>
+                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-mxmo-primary/60 via-mxmo-primary to-mxmo-primary/60 rounded-full"></div>
                 </span>{" "}
                 que estão travando o crescimento da sua empresa
               </h1>
@@ -50,7 +55,7 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
               <Button 
                 size="lg"
                 onClick={onOpenModal}
-                className="group relative overflow-hidden px-12 py-6 text-xl font-bold text-white bg-mxmo-primary hover:bg-mxmo-primary/90 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover-scale animate-fade-in"
+                className="group relative overflow-hidden px-12 py-6 text-xl font-bold text-white bg-gradient-to-r from-mxmo-primary to-mxmo-primary/90 hover:from-mxmo-primary/90 hover:to-mxmo-primary rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover-scale animate-fade-in border border-mxmo-primary/20"
               >
                 <span className="relative z-20 flex items-center gap-3">
                   INICIAR DIAGNÓSTICO GRATUITO
@@ -62,15 +67,15 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
               
               {/* Trust badges */}
               <div className="flex flex-wrap justify-center gap-6 text-sm text-mxmo-dark/60">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-mxmo-light/40">
                   <div className="w-2 h-2 bg-mxmo-primary rounded-full"></div>
                   <span>100% gratuito</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-mxmo-light/40">
                   <div className="w-2 h-2 bg-mxmo-primary rounded-full"></div>
                   <span>2 minutos para completar</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-mxmo-light/40">
                   <div className="w-2 h-2 bg-mxmo-primary rounded-full"></div>
                   <span>Resultado instantâneo</span>
                 </div>
