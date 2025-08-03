@@ -102,6 +102,7 @@ const questions = [
 
 const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticWizardProps) => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [selectedOption, setSelectedOption] = useState<string>("");
   const totalSteps = questions.length + 1; // +1 para captura de lead
   const progress = ((currentStep + 1) / totalSteps) * 100;
 
@@ -129,6 +130,7 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
       const questionId = questions[currentStep - 1]?.id;
       const savedAnswer = initialData.answers?.[questionId] || "";
       console.log('Loading saved answer for question:', questionId, 'answer:', savedAnswer);
+      setSelectedOption(savedAnswer);
       questionForm.reset({ answer: savedAnswer });
     }
   }, [currentStep, initialData.answers]);
@@ -155,9 +157,9 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
 
   const handleOptionSelect = (value: string) => {
     console.log('Option selected:', value);
-    console.log('Current form value before:', questionForm.getValues('answer'));
+    setSelectedOption(value);
     questionForm.setValue('answer', value, { shouldValidate: true, shouldDirty: true });
-    console.log('Current form value after:', questionForm.getValues('answer'));
+    console.log('Selected option state updated to:', value);
   };
 
   const handleBack = () => {
@@ -282,16 +284,16 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
                             className="space-y-2 sm:space-y-3"
                           >
                             {questions[currentStep - 1].options.map((option) => {
-                              const isSelected = field.value === option.value;
-                              console.log(`Option ${option.value} selected:`, isSelected, 'field.value:', field.value);
+                              const isSelected = selectedOption === option.value;
+                              console.log(`Option ${option.value} selected:`, isSelected, 'selectedOption:', selectedOption);
                               
                               return (
                                 <div 
                                   key={option.value} 
-                                  className={`flex items-start space-x-3 p-4 rounded-lg transition-all cursor-pointer ${
+                                  className={`flex items-start space-x-3 p-4 rounded-lg transition-all cursor-pointer border-2 ${
                                     isSelected
-                                      ? 'bg-blue-50 border-2 border-blue-500 shadow-md' 
-                                      : 'bg-white border border-gray-200 hover:bg-gray-50'
+                                      ? 'bg-green-100 border-green-500 shadow-lg' 
+                                      : 'bg-white border-gray-300 hover:bg-gray-50'
                                   }`}
                                   onClick={() => handleOptionSelect(option.value)}
                                 >
@@ -300,8 +302,12 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
                                     id={`option-${option.value}-${currentStep}`} 
                                     className="mt-1 flex-shrink-0" 
                                   />
-                                  <div className="text-gray-800 leading-relaxed text-sm sm:text-base flex-1 min-w-0">
-                                    <span className="font-medium text-blue-600">{option.value})</span> {option.label}
+                                  <div className={`leading-relaxed text-sm sm:text-base flex-1 min-w-0 ${
+                                    isSelected ? 'text-green-800 font-bold' : 'text-gray-700'
+                                  }`}>
+                                    <span className={`font-bold ${isSelected ? 'text-green-600' : 'text-blue-600'}`}>
+                                      {option.value})
+                                    </span> {option.label}
                                   </div>
                                 </div>
                               );
@@ -332,7 +338,7 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
           ) : (
             <Button 
               onClick={questionForm.handleSubmit(handleQuestionSubmit)}
-              disabled={!questionForm.watch('answer')}
+              disabled={!selectedOption}
               className="w-full premium-button bg-gradient-gold text-mxmo-navy text-sm sm:text-base py-3 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {currentStep === questions.length ? 'ENVIAR MEU DIAGNÓSTICO' : 'PRÓXIMA'}
