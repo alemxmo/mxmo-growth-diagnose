@@ -18,12 +18,44 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'inter': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// Strategic neutral palette
+				neutral: {
+					50: 'hsl(var(--neutral-50))',
+					100: 'hsl(var(--neutral-100))',
+					200: 'hsl(var(--neutral-200))',
+					300: 'hsl(var(--neutral-300))',
+					400: 'hsl(var(--neutral-400))',
+					500: 'hsl(var(--neutral-500))',
+					600: 'hsl(var(--neutral-600))',
+					700: 'hsl(var(--neutral-700))',
+					800: 'hsl(var(--neutral-800))',
+					900: 'hsl(var(--neutral-900))',
+				},
+				
+				// MXMO brand colors
+				brand: {
+					primary: 'hsl(var(--brand-primary))',
+					'primary-hover': 'hsl(var(--brand-primary-hover))',
+					'primary-light': 'hsl(var(--brand-primary-light))',
+				},
+				
+				// Strategic blue
+				strategic: {
+					blue: 'hsl(var(--strategic-blue))',
+					'blue-light': 'hsl(var(--strategic-blue-light))',
+					'blue-lighter': 'hsl(var(--strategic-blue-lighter))',
+				},
+				
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -62,6 +94,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-cta': 'var(--gradient-cta)',
+				'gradient-section': 'var(--gradient-section)',
+			},
+			boxShadow: {
+				'strategic': 'var(--shadow-strategic)',
+				'cta': 'var(--shadow-cta)',
+				'card': 'var(--shadow-card)',
+			},
+			transitionTimingFunction: {
+				'strategic': 'var(--transition-strategic)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

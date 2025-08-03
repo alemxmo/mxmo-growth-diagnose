@@ -2,41 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* MXMO Strategic Landing Page Design System */
 
 @layer base {
   :root {
+    /* Strategic color palette - sophisticated and professional */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --foreground: 215 25% 15%;
+    
+    /* Strategic grays */
+    --neutral-50: 210 10% 98%;
+    --neutral-100: 210 8% 95%;
+    --neutral-200: 214 8% 91%;
+    --neutral-300: 213 8% 82%;
+    --neutral-400: 215 8% 65%;
+    --neutral-500: 215 10% 45%;
+    --neutral-600: 215 15% 35%;
+    --neutral-700: 215 20% 25%;
+    --neutral-800: 215 25% 15%;
+    --neutral-900: 215 30% 8%;
+    
+    /* Strategic blue (sophisticated, trustworthy) */
+    --strategic-blue: 217 32% 17%;
+    --strategic-blue-light: 217 25% 25%;
+    --strategic-blue-lighter: 217 15% 35%;
+    
+    /* MXMO brand accent (for CTAs only) */
+    --brand-primary: 203 89% 53%;
+    --brand-primary-hover: 203 89% 48%;
+    --brand-primary-light: 203 89% 65%;
+    
+    /* Semantic tokens */
+    --primary: var(--strategic-blue);
+    --primary-foreground: var(--neutral-50);
+    
+    --secondary: var(--neutral-100);
+    --secondary-foreground: var(--neutral-800);
+    
+    --muted: var(--neutral-100);
+    --muted-foreground: var(--neutral-500);
+    
+    --accent: var(--brand-primary);
+    --accent-foreground: 0 0% 100%;
+    
+    --border: var(--neutral-200);
+    --input: var(--neutral-200);
+    --ring: var(--brand-primary);
+    
+    --card: var(--neutral-50);
+    --card-foreground: var(--neutral-800);
+    
+    /* Strategic gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--neutral-50)), hsl(var(--neutral-100)));
+    --gradient-cta: linear-gradient(135deg, hsl(var(--brand-primary)), hsl(var(--brand-primary-hover)));
+    --gradient-section: linear-gradient(180deg, hsl(var(--background)), hsl(var(--neutral-50)));
+    
+    /* Strategic shadows */
+    --shadow-strategic: 0 10px 40px -10px hsl(var(--neutral-300));
+    --shadow-cta: 0 8px 32px -8px hsl(var(--brand-primary) / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(var(--neutral-200));
+    
+    /* Smooth transitions */
+    --transition-strategic: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +129,46 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+  
+  /* Strategic typography */
+  h1, .h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  h2, .h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  h3, .h3 {
+    @apply text-xl md:text-2xl font-semibold leading-snug;
+  }
+  
+  .body-large {
+    @apply text-lg md:text-xl leading-relaxed;
+  }
+  
+  .body {
+    @apply text-base leading-relaxed;
+  }
+  
+  /* Strategic components */
+  .strategic-section {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  .strategic-container {
+    @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+  }
+  
+  .strategic-card {
+    @apply bg-card rounded-xl shadow-card border border-border;
+  }
+  
+  .pain-point {
+    @apply flex items-start gap-4 p-6 rounded-lg border border-border bg-card/50;
   }
 }
