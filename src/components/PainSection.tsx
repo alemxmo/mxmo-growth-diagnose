@@ -19,7 +19,7 @@ const PainSection = () => {
 
           {/* Pain Points Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-            <div className="pain-point hover-lift">
+            <div className="group pain-point hover-lift">
               <div className="w-12 h-12 bg-mxmo-gold/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-mxmo-gold/30 transition-colors duration-300">
                 <span className="text-2xl">📈</span>
               </div>
@@ -29,7 +29,7 @@ const PainSection = () => {
               </div>
             </div>
             
-            <div className="pain-point hover-lift">
+            <div className="group pain-point hover-lift">
               <div className="w-12 h-12 bg-mxmo-gold/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-mxmo-gold/30 transition-colors duration-300">
                 <span className="text-2xl">📊</span>
               </div>
@@ -39,7 +39,7 @@ const PainSection = () => {
               </div>
             </div>
             
-            <div className="pain-point hover-lift">
+            <div className="group pain-point hover-lift">
               <div className="w-12 h-12 bg-mxmo-gold/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-mxmo-gold/30 transition-colors duration-300">
                 <span className="text-2xl">👥</span>
               </div>
@@ -49,7 +49,7 @@ const PainSection = () => {
               </div>
             </div>
             
-            <div className="pain-point hover-lift">
+            <div className="group pain-point hover-lift">
               <div className="w-12 h-12 bg-mxmo-gold/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-mxmo-gold/30 transition-colors duration-300">
                 <span className="text-2xl">⚙️</span>
               </div>

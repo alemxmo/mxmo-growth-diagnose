@@ -183,7 +183,7 @@
   }
   
   .pain-point {
-    @apply group p-6 sm:p-8 rounded-xl border border-border/50 bg-gradient-to-br from-card to-muted/20 hover:shadow-card transition-all duration-300;
+    @apply p-6 sm:p-8 rounded-xl border border-border/50 bg-gradient-to-br from-card to-muted/20 hover:shadow-card transition-all duration-300;
   }
   
   /* Premium Interactive Elements */
