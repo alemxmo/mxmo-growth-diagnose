@@ -36,22 +36,22 @@ const AuthoritySection = () => {
           
           {/* Executive Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
-            <div className="premium-card bg-mxmo-champagne/10 border-mxmo-champagne/20 hover-lift">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
               <div className="p-6 md:p-8 text-center">
-                <div className="text-3xl md:text-4xl font-bold text-mxmo-champagne mb-2">+50</div>
-                <div className="text-white/90 font-medium body">Empresas transformadas</div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">+50</div>
+                <div className="text-white/80 font-medium body">Empresas transformadas</div>
               </div>
             </div>
-            <div className="premium-card bg-mxmo-champagne/10 border-mxmo-champagne/20 hover-lift">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
               <div className="p-6 md:p-8 text-center">
-                <div className="text-3xl md:text-4xl font-bold text-mxmo-champagne mb-2">20+</div>
-                <div className="text-white/90 font-medium body">Anos de experiência</div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">20+</div>
+                <div className="text-white/80 font-medium body">Anos de experiência</div>
               </div>
             </div>
-            <div className="premium-card bg-mxmo-champagne/10 border-mxmo-champagne/20 hover-lift">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
               <div className="p-6 md:p-8 text-center">
-                <div className="text-3xl md:text-4xl font-bold text-mxmo-champagne mb-2">2min</div>
-                <div className="text-white/90 font-medium body">Diagnóstico rápido</div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">2min</div>
+                <div className="text-white/80 font-medium body">Diagnóstico rápido</div>
               </div>
             </div>
           </div>
