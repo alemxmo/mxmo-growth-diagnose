@@ -28,14 +28,12 @@ const FinalCTASection = ({ onOpenModal }: FinalCTASectionProps) => {
           <Button 
             size="lg"
             onClick={onOpenModal}
-            className="group relative overflow-hidden px-12 py-6 text-xl font-bold text-white bg-mxmo-primary hover:bg-mxmo-primary/80 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover-scale animate-fade-in"
+            className="px-12 py-6 text-xl font-bold text-white bg-[#9F8269] hover:bg-[#8A6F56] rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
           >
-            <span className="relative z-20 flex items-center gap-3 text-white">
+            <span className="flex items-center gap-3">
               RECEBER MEU DIAGNÓSTICO AGORA
-              <span className="text-2xl group-hover:animate-pulse">⚡</span>
+              <span className="text-2xl">⚡</span>
             </span>
-            <div className="absolute inset-0 bg-mxmo-primary rounded-xl"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
           </Button>
         </div>
       </div>
