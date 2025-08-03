@@ -6,20 +6,20 @@ interface FinalCTASectionProps {
 
 const FinalCTASection = ({ onOpenModal }: FinalCTASectionProps) => {
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-mxmo-light/30 via-white to-mxmo-primary/5">
+    <section className="py-20 px-4 bg-gradient-to-br from-[#DFC5AE]/50 via-[#DFC5AE]/30 to-white">
       <div className="max-w-4xl mx-auto text-center space-y-12">
         {/* Header */}
         <div className="space-y-8">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-mxmo-dark">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#242A36]">
             Pronto para ter{" "}
-            <span className="text-mxmo-primary relative">
+            <span className="text-[#9F8269] relative">
               clareza estratégica
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-mxmo-primary/60 via-mxmo-primary to-mxmo-primary/60 rounded-full"></div>
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-[#9F8269]/60 rounded-full"></div>
             </span>?
           </h2>
-          <p className="text-xl text-mxmo-dark/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-[#242A36]/80 max-w-3xl mx-auto leading-relaxed">
             Dê o primeiro passo para transformar sua operação. O diagnóstico é{" "}
-            <strong className="text-mxmo-dark">rápido, gratuito e confidencial</strong>.
+            <strong className="text-[#242A36]">rápido, gratuito e confidencial</strong>.
           </p>
         </div>
 
