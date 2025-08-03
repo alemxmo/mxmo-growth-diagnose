@@ -1,4 +1,4 @@
-import MXMOLogo from "@/components/MXMOLogo";
+
 
 const AuthoritySection = () => {
   return (
@@ -11,9 +11,10 @@ const AuthoritySection = () => {
           {/* Authority Header */}
           <div className="space-y-8">
             <div className="flex justify-center">
-              <MXMOLogo 
-                className="h-20 sm:h-24 w-auto opacity-90" 
-                variant="light"
+              <img 
+                src="/lovable-uploads/e638b57e-11b0-4673-8090-2753a0074fab.png" 
+                alt="MXMO - Alexandre Máximo" 
+                className="h-20 sm:h-24 w-auto opacity-90 filter brightness-200"
               />
             </div>
             

@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import MXMOLogo from "@/components/MXMOLogo";
 
 interface HeroSectionProps {
   onOpenModal: () => void;
@@ -19,9 +18,10 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
             {/* MXMO Brand Header */}
             <div className="space-y-6">
               <div className="flex justify-center">
-                <MXMOLogo 
-                  className="h-16 sm:h-20 md:h-24 w-auto" 
-                  variant="dark"
+                <img 
+                  src="/lovable-uploads/e638b57e-11b0-4673-8090-2753a0074fab.png" 
+                  alt="MXMO - Alexandre Máximo" 
+                  className="h-20 sm:h-24 md:h-28 w-auto"
                 />
               </div>
               <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-mxmo-light/30 to-mxmo-primary/10 rounded-full border border-mxmo-primary/20 backdrop-blur-sm">
