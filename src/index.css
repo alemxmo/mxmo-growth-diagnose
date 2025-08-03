@@ -23,14 +23,14 @@
     --neutral-900: 215 30% 8%;
     
     /* MXMO Dark Blue/Gray (242A36) */
-    --strategic-blue: 211 25% 19%; /* 242A36 - Main dark blue */
-    --strategic-blue-light: 211 20% 30%; /* Lighter version */
-    --strategic-blue-lighter: 211 15% 40%; /* Even lighter */
+    --strategic-blue: 216 21% 19%; /* #242A36 convertido para HSL */
+    --strategic-blue-light: 216 18% 35%; /* Versão mais clara */
+    --strategic-blue-lighter: 216 15% 50%; /* Ainda mais clara */
     
     /* MXMO Official Brand Colors */
-    --brand-primary: 159 130 105; /* 9F8269 - Gold/Brown */
-    --brand-primary-hover: 139 110 85; /* Darker version for hover */
-    --brand-primary-light: 223 197 174; /* DFC5AE - Light Beige/Gold */
+    --brand-primary: 25 24% 52%; /* #9F8269 convertido para HSL */
+    --brand-primary-hover: 25 24% 42%; /* Versão mais escura para hover */
+    --brand-primary-light: 33 39% 78%; /* #DFC5AE convertido para HSL */
     
     /* Semantic tokens */
     --primary: var(--strategic-blue);
@@ -52,10 +52,10 @@
     --card: var(--neutral-50);
     --card-foreground: var(--neutral-800);
     
-    /* Strategic gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--neutral-50)), hsl(var(--neutral-100)));
+    /* Strategic gradients with MXMO colors */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--neutral-50)), hsl(223 197 174 / 0.1));
     --gradient-cta: linear-gradient(135deg, hsl(var(--brand-primary)), hsl(var(--brand-primary-hover)));
-    --gradient-section: linear-gradient(180deg, hsl(var(--background)), hsl(var(--neutral-50)));
+    --gradient-section: linear-gradient(180deg, hsl(var(--background)), hsl(223 197 174 / 0.05));
     
     /* Strategic shadows */
     --shadow-strategic: 0 10px 40px -10px hsl(var(--neutral-300));
