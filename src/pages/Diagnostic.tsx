@@ -38,7 +38,19 @@ const Diagnostic = () => {
     
     try {
       // Formatar as respostas para o email
-      const answersText = Object.entries(finalData.answers || {})
+      const leadInfo = `INFORMAÇÕES DO CLIENTE:
+Nome: ${finalData.lead?.name || 'Não informado'}
+Email: ${finalData.lead?.email || 'Não informado'}
+Telefone: ${finalData.lead?.phone || 'Não informado'}
+Empresa: ${finalData.lead?.company || 'Não informado'}
+
+---
+
+RESPOSTAS DO DIAGNÓSTICO:
+
+`;
+
+      const answersText = leadInfo + Object.entries(finalData.answers || {})
         .map(([questionId, answer]) => {
           const question = getQuestionById(questionId);
           const option = question?.options.find(opt => opt.value === answer);
