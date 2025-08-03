@@ -117,6 +117,7 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
 
   const questionForm = useForm({
     resolver: zodResolver(questionSchema),
+    mode: "onChange",
     defaultValues: {
       answer: ""
     }
@@ -127,9 +128,10 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
     if (currentStep > 0) {
       const questionId = questions[currentStep - 1]?.id;
       const savedAnswer = initialData.answers?.[questionId] || "";
+      console.log('Loading saved answer for question:', questionId, 'answer:', savedAnswer);
       questionForm.reset({ answer: savedAnswer });
     }
-  }, [currentStep, initialData.answers, questionForm]);
+  }, [currentStep, initialData.answers]);
 
   const handleLeadSubmit = (data: any) => {
     const newData = { ...initialData, lead: data };
@@ -153,9 +155,9 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
 
   const handleOptionSelect = (value: string) => {
     console.log('Option selected:', value);
-    console.log('Current form value before:', questionForm.watch('answer'));
-    questionForm.setValue('answer', value);
-    console.log('Current form value after:', questionForm.watch('answer'));
+    console.log('Current form value before:', questionForm.getValues('answer'));
+    questionForm.setValue('answer', value, { shouldValidate: true, shouldDirty: true });
+    console.log('Current form value after:', questionForm.getValues('answer'));
   };
 
   const handleBack = () => {
