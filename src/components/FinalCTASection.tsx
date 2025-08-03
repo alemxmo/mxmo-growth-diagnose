@@ -28,10 +28,10 @@ const FinalCTASection = ({ onOpenModal }: FinalCTASectionProps) => {
           <div className="space-y-6">
             <button 
               onClick={onOpenModal}
-              className="premium-button bg-gradient-gold text-white hover:shadow-premium"
+              className="premium-button bg-gradient-gold text-white hover:shadow-premium hover:scale-110 shadow-2xl shadow-mxmo-gold/50 border-2 border-mxmo-gold/80 hover:border-mxmo-gold transition-all duration-300"
             >
-              <span className="font-bold">RECEBER MEU DIAGNÓSTICO AGORA</span>
-              <span className="text-xl">⚡</span>
+              <span className="font-bold tracking-wide">RECEBER MEU DIAGNÓSTICO AGORA</span>
+              <span className="text-xl animate-pulse">⚡</span>
             </button>
             
             <p className="text-xs sm:text-sm text-mxmo-navy/60 font-medium">

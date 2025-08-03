@@ -54,10 +54,10 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
             <div className="space-y-6 md:space-y-8">
               <button 
                 onClick={onOpenModal}
-                className="premium-button bg-gradient-gold text-mxmo-navy hover:shadow-premium hover:scale-105 shadow-2xl shadow-mxmo-gold/30"
+                className="premium-button bg-gradient-gold text-mxmo-navy hover:shadow-premium hover:scale-110 shadow-2xl shadow-mxmo-gold/40 border-2 border-mxmo-gold/60 hover:border-mxmo-gold transition-all duration-300"
               >
-                <span className="font-bold text-lg">INICIAR DIAGNÓSTICO GRATUITO</span>
-                <span className="text-2xl">🚀</span>
+                <span className="font-bold text-lg tracking-wide">INICIAR DIAGNÓSTICO GRATUITO</span>
+                <span className="text-2xl animate-pulse">🚀</span>
               </button>
               
               {/* Trust badges */}
