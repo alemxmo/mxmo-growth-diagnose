@@ -126,16 +126,15 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
 
   // Atualizar form quando step muda
   useEffect(() => {
+    // Sempre começar sem marcação visual
+    setSelectedOption("");
+    
     if (currentStep > 0) {
       const questionId = questions[currentStep - 1]?.id;
       const savedAnswer = initialData.answers?.[questionId] || "";
       console.log('Loading saved answer for question:', questionId, 'answer:', savedAnswer);
-      // Só marcar visualmente se há resposta salva, senão deixar limpo
-      setSelectedOption(savedAnswer);
+      // Carregar no form mas NÃO marcar visualmente
       questionForm.reset({ answer: savedAnswer });
-    } else {
-      // Limpar seleção quando não está numa pergunta
-      setSelectedOption("");
     }
   }, [currentStep, initialData.answers]);
 
