@@ -7,7 +7,6 @@ import { Progress } from "@/components/ui/progress";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
 
 // Schema para captura de lead
 const leadSchema = z.object({
@@ -138,9 +137,11 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
     if (currentStep < totalSteps - 1) {
       setCurrentStep(currentStep + 1);
       // Reset form para próxima pergunta
-      questionForm.reset({
-        answer: newData.answers?.[questions[currentStep]?.id] || ""
-      });
+      setTimeout(() => {
+        questionForm.reset({
+          answer: newData.answers?.[questions[currentStep]?.id] || ""
+        });
+      }, 100);
     } else {
       // Finalizar
       onComplete(newData);
@@ -152,165 +153,190 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
       setCurrentStep(currentStep - 1);
       if (currentStep > 1) {
         // Carregar resposta da pergunta anterior
-        const prevQuestionId = questions[currentStep - 2].id;
-        questionForm.reset({
-          answer: initialData.answers?.[prevQuestionId] || ""
-        });
+        setTimeout(() => {
+          const prevQuestionId = questions[currentStep - 2].id;
+          questionForm.reset({
+            answer: initialData.answers?.[prevQuestionId] || ""
+          });
+        }, 100);
       }
     }
   };
 
   return (
-    <div className="h-full flex flex-col">
-      {/* Header com Progress */}
-      <div className="px-6 py-4 border-b bg-gradient-to-r from-mxmo-navy to-mxmo-navy/90">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-white">Diagnóstico Estratégico MXMO</h2>
-          <div className="text-white/80 text-sm">
+    <div className="h-full flex flex-col relative">
+      {/* Header com Progress - fixo no topo */}
+      <div className="px-4 sm:px-6 py-3 sm:py-4 border-b bg-gradient-to-r from-mxmo-navy to-mxmo-navy/90 flex-shrink-0">
+        <div className="flex items-center justify-between mb-3 sm:mb-4">
+          <h2 className="text-lg sm:text-xl font-bold text-white">Diagnóstico Estratégico MXMO</h2>
+          <div className="text-white/80 text-xs sm:text-sm">
             {currentStep + 1} de {totalSteps}
           </div>
         </div>
         <Progress value={progress} className="h-2 bg-white/20" />
       </div>
 
-      {/* Content */}
-      <div className="flex-1 p-6 overflow-y-auto">
-        {currentStep === 0 ? (
-          // Captura de Lead
-          <div className="max-w-md mx-auto space-y-6">
-            <div className="text-center space-y-2">
-              <h3 className="text-2xl font-bold text-mxmo-navy">Vamos começar!</h3>
-              <p className="text-mxmo-navy/70">
-                Primeiro, precisamos de algumas informações básicas para personalizar seu diagnóstico.
-              </p>
-            </div>
-
-            <Form {...leadForm}>
-              <form onSubmit={leadForm.handleSubmit(handleLeadSubmit)} className="space-y-4">
-                <FormField
-                  control={leadForm.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Nome completo</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Digite seu nome" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={leadForm.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>E-mail profissional</FormLabel>
-                      <FormControl>
-                        <Input type="email" placeholder="seu@email.com" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={leadForm.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Telefone</FormLabel>
-                      <FormControl>
-                        <Input placeholder="(11) 99999-9999" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={leadForm.control}
-                  name="company"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Empresa</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Nome da sua empresa" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <Button type="submit" className="w-full premium-button bg-gradient-gold text-mxmo-navy">
-                  INICIAR DIAGNÓSTICO
-                </Button>
-              </form>
-            </Form>
-          </div>
-        ) : (
-          // Perguntas
-          <div className="max-w-2xl mx-auto space-y-6">
-            <div className="space-y-3">
-              <div className="text-center">
-                <span className="inline-block px-3 py-1 bg-mxmo-gold/20 text-mxmo-navy text-sm font-medium rounded-full">
-                  Pergunta {currentStep} de {questions.length}
-                </span>
+      {/* Content - área scrollável */}
+      <div className="flex-1 overflow-y-auto">
+        <div className="p-4 sm:p-6 pb-24">
+          {currentStep === 0 ? (
+            // Captura de Lead
+            <div className="max-w-md mx-auto space-y-4 sm:space-y-6">
+              <div className="text-center space-y-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-mxmo-navy">Vamos começar!</h3>
+                <p className="text-sm sm:text-base text-mxmo-navy/70">
+                  Primeiro, precisamos de algumas informações básicas para personalizar seu diagnóstico.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-mxmo-navy leading-relaxed">
-                {questions[currentStep - 1].title}
-              </h3>
+
+              <Form {...leadForm}>
+                <form onSubmit={leadForm.handleSubmit(handleLeadSubmit)} className="space-y-4">
+                  <FormField
+                    control={leadForm.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Nome completo</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Digite seu nome" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={leadForm.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>E-mail profissional</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="seu@email.com" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={leadForm.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Telefone</FormLabel>
+                        <FormControl>
+                          <Input placeholder="(11) 99999-9999" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={leadForm.control}
+                    name="company"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Empresa</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Nome da sua empresa" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </form>
+              </Form>
             </div>
-
-            <Form {...questionForm}>
-              <form onSubmit={questionForm.handleSubmit(handleQuestionSubmit)} className="space-y-6">
-                <FormField
-                  control={questionForm.control}
-                  name="answer"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <RadioGroup
-                          onValueChange={field.onChange}
-                          value={field.value}
-                          className="space-y-3"
-                        >
-                          {questions[currentStep - 1].options.map((option) => (
-                            <div key={option.value} className="flex items-start space-x-3 p-4 border border-mxmo-navy/20 rounded-lg hover:bg-mxmo-champagne/30 transition-colors">
-                              <RadioGroupItem value={option.value} id={option.value} className="mt-1" />
-                              <Label htmlFor={option.value} className="text-mxmo-navy leading-relaxed cursor-pointer flex-1">
-                                <span className="font-medium">{option.value})</span> {option.label}
-                              </Label>
-                            </div>
-                          ))}
-                        </RadioGroup>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <div className="flex gap-4 pt-4">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={handleBack}
-                    className="flex-1"
-                  >
-                    VOLTAR
-                  </Button>
-                  <Button 
-                    type="submit" 
-                    className="flex-1 premium-button bg-gradient-gold text-mxmo-navy"
-                  >
-                    {currentStep === questions.length ? 'ENVIAR MEU DIAGNÓSTICO' : 'PRÓXIMA'}
-                  </Button>
+          ) : (
+            // Perguntas
+            <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6">
+              <div className="space-y-3">
+                <div className="text-center">
+                  <span className="inline-block px-3 py-1 bg-mxmo-gold/20 text-mxmo-navy text-xs sm:text-sm font-medium rounded-full">
+                    Pergunta {currentStep} de {questions.length}
+                  </span>
                 </div>
-              </form>
-            </Form>
-          </div>
-        )}
+                <h3 className="text-lg sm:text-xl font-semibold text-mxmo-navy leading-relaxed">
+                  {questions[currentStep - 1].title}
+                </h3>
+              </div>
+
+              <Form {...questionForm}>
+                <form onSubmit={questionForm.handleSubmit(handleQuestionSubmit)}>
+                  <FormField
+                    control={questionForm.control}
+                    name="answer"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <RadioGroup
+                            onValueChange={field.onChange}
+                            value={field.value}
+                            className="space-y-2 sm:space-y-3"
+                          >
+                            {questions[currentStep - 1].options.map((option) => (
+                              <label 
+                                key={option.value} 
+                                htmlFor={`option-${option.value}-${currentStep}`}
+                                className="flex items-start space-x-3 p-3 sm:p-4 border border-mxmo-navy/20 rounded-lg hover:bg-mxmo-champagne/30 transition-colors cursor-pointer group block"
+                                onClick={() => field.onChange(option.value)}
+                              >
+                                <RadioGroupItem 
+                                  value={option.value} 
+                                  id={`option-${option.value}-${currentStep}`} 
+                                  className="mt-1 flex-shrink-0" 
+                                />
+                                <div className="text-mxmo-navy leading-relaxed text-sm sm:text-base flex-1 min-w-0">
+                                  <span className="font-medium">{option.value})</span> {option.label}
+                                </div>
+                              </label>
+                            ))}
+                          </RadioGroup>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </form>
+              </Form>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Botões fixos na parte inferior */}
+      <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-mxmo-navy/10 p-4 sm:p-6">
+        <div className="max-w-2xl mx-auto">
+          {currentStep === 0 ? (
+            <Button 
+              onClick={leadForm.handleSubmit(handleLeadSubmit)}
+              className="w-full premium-button bg-gradient-gold text-mxmo-navy text-sm sm:text-base py-3"
+            >
+              INICIAR DIAGNÓSTICO
+            </Button>
+          ) : (
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              {currentStep > 1 && (
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleBack}
+                  className="w-full sm:flex-1 text-sm sm:text-base"
+                >
+                  VOLTAR
+                </Button>
+              )}
+              <Button 
+                onClick={questionForm.handleSubmit(handleQuestionSubmit)}
+                className="w-full sm:flex-1 premium-button bg-gradient-gold text-mxmo-navy text-sm sm:text-base py-3"
+              >
+                {currentStep === questions.length ? 'ENVIAR MEU DIAGNÓSTICO' : 'PRÓXIMA'}
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

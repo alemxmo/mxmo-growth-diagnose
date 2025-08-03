@@ -59,7 +59,7 @@ const DiagnosticModal = ({ isOpen, onClose }: DiagnosticModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-[95vw] max-w-4xl h-[90vh] max-h-[700px] p-0 bg-white border-none">
+      <DialogContent className="w-[100vw] sm:w-[95vw] max-w-4xl h-[100vh] sm:h-[90vh] max-h-none sm:max-h-[700px] p-0 bg-white border-none m-0 sm:m-6 rounded-none sm:rounded-lg">
         <DialogHeader className="sr-only">
           <DialogTitle>Diagnóstico Estratégico MXMO</DialogTitle>
         </DialogHeader>
