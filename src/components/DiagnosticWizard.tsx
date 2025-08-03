@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -118,9 +118,18 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
   const questionForm = useForm({
     resolver: zodResolver(questionSchema),
     defaultValues: {
-      answer: initialData.answers?.[questions[currentStep - 1]?.id] || ""
+      answer: ""
     }
   });
+
+  // Atualizar form quando step muda
+  useEffect(() => {
+    if (currentStep > 0) {
+      const questionId = questions[currentStep - 1]?.id;
+      const savedAnswer = initialData.answers?.[questionId] || "";
+      questionForm.reset({ answer: savedAnswer });
+    }
+  }, [currentStep, initialData.answers, questionForm]);
 
   const handleLeadSubmit = (data: any) => {
     const newData = { ...initialData, lead: data };
@@ -136,12 +145,6 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
 
     if (currentStep < totalSteps - 1) {
       setCurrentStep(currentStep + 1);
-      // Reset form para próxima pergunta
-      setTimeout(() => {
-        questionForm.reset({
-          answer: newData.answers?.[questions[currentStep]?.id] || ""
-        });
-      }, 100);
     } else {
       // Finalizar
       onComplete(newData);
@@ -159,15 +162,6 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
   const handleBack = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
-      if (currentStep > 1) {
-        // Carregar resposta da pergunta anterior
-        setTimeout(() => {
-          const prevQuestionId = questions[currentStep - 2].id;
-          questionForm.reset({
-            answer: initialData.answers?.[prevQuestionId] || ""
-          });
-        }, 100);
-      }
     }
   };
 

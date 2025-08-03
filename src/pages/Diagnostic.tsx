@@ -43,8 +43,8 @@ const Diagnostic = () => {
     // Aqui você pode enviar para o backend
     // await submitDiagnostic(finalData);
     
-    // Redirecionar para uma página de obrigado ou voltar para home
-    navigate('/');
+    // Redirecionar para página de agradecimento
+    navigate('/thank-you');
   };
 
   const handleExit = () => {
