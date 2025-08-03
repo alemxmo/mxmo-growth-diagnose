@@ -1,18 +1,28 @@
+import { useState } from "react";
 import HeroSection from "@/components/HeroSection";
 import PainSection from "@/components/PainSection";
-import DiagnosticSection from "@/components/DiagnosticSection";
 import AuthoritySection from "@/components/AuthoritySection";
 import FinalCTASection from "@/components/FinalCTASection";
+import Footer from "@/components/Footer";
+import DiagnosticModal from "@/components/DiagnosticModal";
 
 const Index = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-background">
-      {/* Strategic Landing Page - Single conversion path to diagnostic */}
-      <HeroSection />
+    <div className="min-h-screen bg-white">
+      {/* Strategic Landing Page - Single conversion path to modal */}
+      <HeroSection onOpenModal={() => setIsModalOpen(true)} />
       <PainSection />
-      <DiagnosticSection />
       <AuthoritySection />
-      <FinalCTASection />
+      <FinalCTASection onOpenModal={() => setIsModalOpen(true)} />
+      <Footer />
+      
+      {/* Diagnostic Modal */}
+      <DiagnosticModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 };
