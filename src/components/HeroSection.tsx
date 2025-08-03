@@ -6,10 +6,10 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-mxmo-navy via-mxmo-navy/95 to-mxmo-navy/90 relative overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-mxmo-navy relative overflow-hidden">
       {/* Premium Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-mxmo-navy via-mxmo-navy/95 to-mxmo-navy/90"></div>
-      <div className="absolute inset-0 opacity-20 bg-gradient-to-br from-transparent via-mxmo-gold/5 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-mxmo-navy"></div>
+      <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-transparent via-mxmo-gold/10 to-transparent"></div>
       
       {/* Content */}
       <div className="relative z-10 executive-section min-h-screen flex items-center">
@@ -19,9 +19,9 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
             <div className="space-y-6">
               <div className="flex justify-center">
                 <img 
-                  src="/lovable-uploads/e638b57e-11b0-4673-8090-2753a0074fab.png" 
+                  src="/lovable-uploads/494b9d75-2fce-42ef-9d35-052fb098ae43.png" 
                   alt="MXMO - Alexandre Máximo" 
-                  className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto opacity-95 hover:opacity-100 transition-all duration-300 hover:scale-105"
                 />
               </div>
               <div className="executive-badge bg-mxmo-gold/20 border-mxmo-gold/40 text-white hover-lift">
