@@ -6,10 +6,10 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
   return (
-    <section className="min-h-screen bg-gradient-hero relative overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-mxmo-navy via-mxmo-navy/95 to-mxmo-navy/90 relative overflow-hidden">
       {/* Premium Background */}
-      <div className="absolute inset-0 bg-gradient-hero"></div>
-      <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-transparent via-mxmo-champagne/5 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-mxmo-navy via-mxmo-navy/95 to-mxmo-navy/90"></div>
+      <div className="absolute inset-0 opacity-20 bg-gradient-to-br from-transparent via-mxmo-gold/5 to-transparent"></div>
       
       {/* Content */}
       <div className="relative z-10 executive-section min-h-screen flex items-center">
@@ -24,7 +24,7 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
                   className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
-              <div className="executive-badge bg-white/80 border-mxmo-gold/30 text-mxmo-navy hover-lift">
+              <div className="executive-badge bg-mxmo-gold/20 border-mxmo-gold/40 text-white hover-lift">
                 <div className="w-2 h-2 bg-mxmo-gold rounded-full animate-pulse"></div>
                 <span className="font-semibold">Diagnóstico Estratégico</span>
                 <span className="text-mxmo-gold font-bold">• Gratuito</span>
@@ -33,7 +33,7 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
 
             {/* Hero Title */}
             <div className="space-y-6 md:space-y-8">
-              <h1 className="h1 text-mxmo-navy max-w-5xl mx-auto">
+              <h1 className="h1 text-white max-w-5xl mx-auto">
                 Descubra os{" "}
                 <span className="text-mxmo-gold relative inline-block">
                   3 gargalos invisíveis
@@ -42,11 +42,11 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
                 que estão travando o crescimento da sua empresa
               </h1>
               
-              <p className="subtitle text-mxmo-navy/80 max-w-4xl mx-auto">
+              <p className="subtitle text-white/90 max-w-4xl mx-auto">
                 Receba um diagnóstico estratégico gratuito em menos de{" "}
                 <strong className="text-mxmo-gold">2 minutos</strong>. 
                 Tenha clareza sobre os pontos que, uma vez ajustados, podem{" "}
-                <strong className="text-mxmo-navy">destravar seu faturamento e eficiência</strong>.
+                <strong className="text-white">destravar seu faturamento e eficiência</strong>.
               </p>
             </div>
 
@@ -54,23 +54,23 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
             <div className="space-y-6 md:space-y-8">
               <button 
                 onClick={onOpenModal}
-                className="premium-button bg-gradient-gold text-white hover:shadow-premium"
+                className="premium-button bg-gradient-gold text-mxmo-navy hover:shadow-premium hover:scale-105 shadow-2xl shadow-mxmo-gold/30"
               >
-                <span className="font-bold">INICIAR DIAGNÓSTICO GRATUITO</span>
-                <span className="text-xl">🚀</span>
+                <span className="font-bold text-lg">INICIAR DIAGNÓSTICO GRATUITO</span>
+                <span className="text-2xl">🚀</span>
               </button>
               
               {/* Trust badges */}
               <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
-                <div className="executive-badge bg-white/70 border-white/80 text-mxmo-navy text-xs sm:text-sm">
+                <div className="executive-badge bg-white/10 border-white/30 text-white text-xs sm:text-sm">
                   <div className="w-1.5 h-1.5 bg-mxmo-gold rounded-full"></div>
                   <span className="font-medium">100% gratuito</span>
                 </div>
-                <div className="executive-badge bg-white/70 border-white/80 text-mxmo-navy text-xs sm:text-sm">
+                <div className="executive-badge bg-white/10 border-white/30 text-white text-xs sm:text-sm">
                   <div className="w-1.5 h-1.5 bg-mxmo-gold rounded-full"></div>
                   <span className="font-medium">2 minutos</span>
                 </div>
-                <div className="executive-badge bg-white/70 border-white/80 text-mxmo-navy text-xs sm:text-sm">
+                <div className="executive-badge bg-white/10 border-white/30 text-white text-xs sm:text-sm">
                   <div className="w-1.5 h-1.5 bg-mxmo-gold rounded-full"></div>
                   <span className="font-medium">Resultado instantâneo</span>
                 </div>
