@@ -28,10 +28,14 @@ const FinalCTASection = ({ onOpenModal }: FinalCTASectionProps) => {
           <Button 
             size="lg"
             onClick={onOpenModal}
-            className="group relative px-12 py-6 text-xl font-bold bg-mxmo-primary hover:bg-mxmo-primary/90 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            className="group relative overflow-hidden px-12 py-6 text-xl font-bold text-white bg-mxmo-primary hover:bg-mxmo-primary/90 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover-scale animate-fade-in"
           >
-            <span className="relative z-10">RECEBER MEU DIAGNÓSTICO AGORA</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-mxmo-primary to-mxmo-primary/80 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative z-20 flex items-center gap-3">
+              RECEBER MEU DIAGNÓSTICO AGORA
+              <span className="text-2xl group-hover:animate-pulse">⚡</span>
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-mxmo-primary via-mxmo-primary/90 to-mxmo-primary rounded-xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
           </Button>
           
           {/* Social proof */}
@@ -41,7 +45,7 @@ const FinalCTASection = ({ onOpenModal }: FinalCTASectionProps) => {
               <div className="w-8 h-8 bg-mxmo-primary/80 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">B</div>
               <div className="w-8 h-8 bg-mxmo-primary/60 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">C</div>
             </div>
-            <span className="text-sm">+200 empresas já fizeram o diagnóstico</span>
+            <span className="text-sm">+50 empresas já fizeram o diagnóstico</span>
           </div>
         </div>
       </div>

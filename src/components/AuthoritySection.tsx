@@ -31,15 +31,15 @@ const AuthoritySection = () => {
           
           {/* Key Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="p-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/40">
-              <div className="text-4xl font-bold text-mxmo-primary mb-2">200+</div>
+            <div className="p-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/40 hover-scale">
+              <div className="text-4xl font-bold text-mxmo-primary mb-2">+50</div>
               <div className="text-mxmo-dark/70 font-medium">Empresas transformadas</div>
             </div>
-            <div className="p-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/40">
-              <div className="text-4xl font-bold text-mxmo-primary mb-2">10+</div>
+            <div className="p-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/40 hover-scale">
+              <div className="text-4xl font-bold text-mxmo-primary mb-2">20+</div>
               <div className="text-mxmo-dark/70 font-medium">Anos de experiência</div>
             </div>
-            <div className="p-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/40">
+            <div className="p-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/40 hover-scale">
               <div className="text-4xl font-bold text-mxmo-primary mb-2">2min</div>
               <div className="text-mxmo-dark/70 font-medium">Diagnóstico rápido</div>
             </div>

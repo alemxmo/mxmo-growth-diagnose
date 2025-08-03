@@ -172,4 +172,9 @@
   .pain-point {
     @apply flex items-start gap-4 p-6 rounded-lg border border-border bg-card/50;
   }
+  
+  /* Hover Scale Animation */
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
 }
