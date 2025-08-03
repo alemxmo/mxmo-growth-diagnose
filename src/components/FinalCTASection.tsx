@@ -6,35 +6,38 @@ interface FinalCTASectionProps {
 
 const FinalCTASection = ({ onOpenModal }: FinalCTASectionProps) => {
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-[#DFC5AE]/50 via-[#DFC5AE]/30 to-white">
-      <div className="max-w-4xl mx-auto text-center space-y-12">
-        {/* Header */}
-        <div className="space-y-8">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#242A36]">
-            Pronto para ter{" "}
-            <span className="text-[#9F8269] relative">
-              clareza estratégica
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-[#9F8269]/60 rounded-full"></div>
-            </span>?
-          </h2>
-          <p className="text-xl text-[#242A36]/80 max-w-3xl mx-auto leading-relaxed">
-            Dê o primeiro passo para transformar sua operação. O diagnóstico é{" "}
-            <strong className="text-[#242A36]">rápido, gratuito e confidencial</strong>.
-          </p>
-        </div>
+    <section className="executive-section bg-gradient-to-br from-mxmo-champagne/30 via-mxmo-cream/50 to-background">
+      <div className="executive-container">
+        <div className="text-center space-y-8 md:space-y-12">
+          {/* Header */}
+          <div className="space-y-6 md:space-y-8">
+            <h2 className="h2 text-mxmo-navy max-w-4xl mx-auto">
+              Pronto para ter{" "}
+              <span className="text-mxmo-gold relative inline-block">
+                clareza estratégica
+                <div className="absolute -bottom-1 left-0 right-0 h-1 bg-mxmo-gold/60 rounded-full"></div>
+              </span>?
+            </h2>
+            <p className="subtitle text-mxmo-navy/80 max-w-3xl mx-auto">
+              Dê o primeiro passo para transformar sua operação. O diagnóstico é{" "}
+              <strong className="text-mxmo-navy">rápido, gratuito e confidencial</strong>.
+            </p>
+          </div>
 
-        {/* CTA */}
-        <div className="space-y-8">
-          <Button 
-            size="lg"
-            onClick={onOpenModal}
-            className="px-12 py-6 text-xl font-bold text-white bg-[#9F8269] hover:bg-[#8A6F56] rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
-          >
-            <span className="flex items-center gap-3">
-              RECEBER MEU DIAGNÓSTICO AGORA
-              <span className="text-2xl">⚡</span>
-            </span>
-          </Button>
+          {/* Premium CTA */}
+          <div className="space-y-6">
+            <button 
+              onClick={onOpenModal}
+              className="premium-button bg-gradient-gold text-white hover:shadow-premium"
+            >
+              <span className="font-bold">RECEBER MEU DIAGNÓSTICO AGORA</span>
+              <span className="text-xl">⚡</span>
+            </button>
+            
+            <p className="text-xs sm:text-sm text-mxmo-navy/60 font-medium">
+              100% seguro • Sem compromisso • Resultado imediato
+            </p>
+          </div>
         </div>
       </div>
     </section>

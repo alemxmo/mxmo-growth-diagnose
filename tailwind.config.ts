@@ -28,7 +28,7 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				
-				// Strategic neutral palette
+				// Premium neutral palette
 				neutral: {
 					50: 'hsl(var(--neutral-50))',
 					100: 'hsl(var(--neutral-100))',
@@ -42,18 +42,12 @@ export default {
 					900: 'hsl(var(--neutral-900))',
 				},
 				
-				// MXMO brand colors
-				brand: {
-					primary: 'hsl(var(--brand-primary))',
-					'primary-hover': 'hsl(var(--brand-primary-hover))',
-					'primary-light': 'hsl(var(--brand-primary-light))',
-				},
-				
-				// Strategic blue
-				strategic: {
-					blue: 'hsl(var(--strategic-blue))',
-					'blue-light': 'hsl(var(--strategic-blue-light))',
-					'blue-lighter': 'hsl(var(--strategic-blue-lighter))',
+				// MXMO Executive brand colors
+				mxmo: {
+					navy: 'hsl(var(--mxmo-navy))',
+					gold: 'hsl(var(--mxmo-gold))',
+					champagne: 'hsl(var(--mxmo-champagne))',
+					cream: 'hsl(var(--mxmo-cream))',
 				},
 				
 				primary: {
@@ -97,16 +91,18 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)',
-				'gradient-cta': 'var(--gradient-cta)',
-				'gradient-section': 'var(--gradient-section)',
+				'gradient-executive': 'var(--gradient-executive)',
+				'gradient-gold': 'var(--gradient-gold)',
+				'gradient-subtle': 'var(--gradient-subtle)',
 			},
 			boxShadow: {
-				'strategic': 'var(--shadow-strategic)',
-				'cta': 'var(--shadow-cta)',
+				'premium': 'var(--shadow-premium)',
+				'executive': 'var(--shadow-executive)',
 				'card': 'var(--shadow-card)',
+				'subtle': 'var(--shadow-subtle)',
 			},
 			transitionTimingFunction: {
-				'strategic': 'var(--transition-strategic)',
+				'premium': 'var(--transition-premium)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
