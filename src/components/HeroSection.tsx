@@ -1,10 +1,17 @@
 import { Button } from "@/components/ui/button";
 
+import { useNavigate } from "react-router-dom";
+
 interface HeroSectionProps {
-  onOpenModal: () => void;
+  onOpenModal?: () => void; // Mantido para compatibilidade
 }
 
 const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
+  const navigate = useNavigate();
+
+  const handleStartDiagnostic = () => {
+    navigate('/diagnostic');
+  };
   return (
     <section className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-mxmo-navy relative overflow-hidden">
       {/* Premium Background */}
@@ -53,7 +60,7 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
             {/* CTA Button */}
             <div className="space-y-6 md:space-y-8">
               <button 
-                onClick={onOpenModal}
+                onClick={handleStartDiagnostic}
                 className="premium-button bg-gradient-gold text-mxmo-navy hover:shadow-premium hover:scale-110 shadow-2xl shadow-mxmo-gold/40 border-2 border-mxmo-gold/60 hover:border-mxmo-gold transition-all duration-300"
               >
                 <span className="font-bold text-lg tracking-wide">INICIAR DIAGNÓSTICO GRATUITO</span>

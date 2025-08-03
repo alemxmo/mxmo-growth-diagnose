@@ -148,6 +148,14 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
     }
   };
 
+  const handleOptionSelect = (value: string) => {
+    questionForm.setValue('answer', value);
+    // Auto-submit após 1 segundo para dar feedback visual
+    setTimeout(() => {
+      handleQuestionSubmit({ answer: value });
+    }, 800);
+  };
+
   const handleBack = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
@@ -164,16 +172,18 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
   };
 
   return (
-    <div className="h-full flex flex-col relative">
-      {/* Header com Progress - fixo no topo */}
-      <div className="px-4 sm:px-6 py-3 sm:py-4 border-b bg-gradient-to-r from-mxmo-navy to-mxmo-navy/90 flex-shrink-0">
-        <div className="flex items-center justify-between mb-3 sm:mb-4">
-          <h2 className="text-lg sm:text-xl font-bold text-white">Diagnóstico Estratégico MXMO</h2>
-          <div className="text-white/80 text-xs sm:text-sm">
-            {currentStep + 1} de {totalSteps}
-          </div>
+    <div className="h-full flex flex-col">
+      {/* Progress bar no topo */}
+      <div className="px-4 sm:px-6 py-3 bg-mxmo-navy/5 border-b flex-shrink-0">
+        <Progress value={progress} className="h-2" />
+        <div className="flex justify-between items-center mt-2">
+          <span className="text-xs text-mxmo-navy/60">
+            Etapa {currentStep + 1} de {totalSteps}
+          </span>
+          <span className="text-xs text-mxmo-navy/60">
+            {Math.round(progress)}% concluído
+          </span>
         </div>
-        <Progress value={progress} className="h-2 bg-white/20" />
       </div>
 
       {/* Content - área scrollável */}
@@ -280,8 +290,12 @@ const DiagnosticWizard = ({ onComplete, initialData, onUpdateData }: DiagnosticW
                               <label 
                                 key={option.value} 
                                 htmlFor={`option-${option.value}-${currentStep}`}
-                                className="flex items-start space-x-3 p-3 sm:p-4 border border-mxmo-navy/20 rounded-lg hover:bg-mxmo-champagne/30 transition-colors cursor-pointer group block"
-                                onClick={() => field.onChange(option.value)}
+                                className={`flex items-start space-x-3 p-3 sm:p-4 border rounded-lg transition-all cursor-pointer group block ${
+                                  field.value === option.value 
+                                    ? 'border-mxmo-gold bg-mxmo-gold/10 shadow-md' 
+                                    : 'border-mxmo-navy/20 hover:bg-mxmo-champagne/30'
+                                }`}
+                                onClick={() => handleOptionSelect(option.value)}
                               >
                                 <RadioGroupItem 
                                   value={option.value} 

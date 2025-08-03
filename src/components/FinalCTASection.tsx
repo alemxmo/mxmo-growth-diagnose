@@ -1,10 +1,15 @@
-import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 interface FinalCTASectionProps {
-  onOpenModal: () => void;
+  onOpenModal?: () => void; // Mantido para compatibilidade
 }
 
 const FinalCTASection = ({ onOpenModal }: FinalCTASectionProps) => {
+  const navigate = useNavigate();
+
+  const handleStartDiagnostic = () => {
+    navigate('/diagnostic');
+  };
   return (
     <section className="executive-section bg-gradient-to-br from-mxmo-champagne/30 via-mxmo-cream/50 to-background">
       <div className="executive-container">
@@ -27,7 +32,7 @@ const FinalCTASection = ({ onOpenModal }: FinalCTASectionProps) => {
           {/* Premium CTA */}
           <div className="space-y-6">
             <button 
-              onClick={onOpenModal}
+              onClick={handleStartDiagnostic}
               className="premium-button bg-gradient-gold text-white hover:shadow-premium hover:scale-110 shadow-2xl shadow-mxmo-gold/50 border-2 border-mxmo-gold/80 hover:border-mxmo-gold transition-all duration-300"
             >
               <span className="font-bold tracking-wide">RECEBER MEU DIAGNÓSTICO AGORA</span>
