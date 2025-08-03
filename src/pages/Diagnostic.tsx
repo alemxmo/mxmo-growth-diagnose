@@ -53,6 +53,7 @@ const Diagnostic = () => {
         client_email: finalData.lead?.email || '',
         client_phone: finalData.lead?.phone || '',
         client_company: finalData.lead?.company || '',
+        message: answersText,
         answers: answersText,
         completed_at: new Date(finalData.completedAt).toLocaleString('pt-BR')
       };
