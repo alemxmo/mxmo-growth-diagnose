@@ -58,10 +58,10 @@ const Diagnostic = () => {
       };
 
       await emailjs.send(
-        'service_soq4zxl', // Service ID fornecido
-        'template_xxx', // Template ID - você precisa configurar
+        'service_soq4zxl',
+        'template_wntnnqh',
         templateParams,
-        'your_public_key' // Public Key - você precisa fornecer
+        'bDrIc2tRtXZjSbaMi'
       );
 
       toast({
