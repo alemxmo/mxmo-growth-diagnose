@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-clarity.jpg";
 
 const HeroSection = () => {
   const scrollToDiagnostic = () => {
@@ -10,61 +9,60 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="strategic-section bg-gradient-hero">
-      <div className="strategic-container">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Content */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h1 className="h1 text-neutral-800">
-                Descubra os 3 gargalos invisíveis que estão{" "}
-                <span className="text-brand-primary">travando o crescimento</span>{" "}
-                da sua empresa.
-              </h1>
-              
-              <p className="body-large text-neutral-600 max-w-xl">
-                Receba um diagnóstico estratégico gratuito em menos de 2 minutos. 
-                Tenha clareza sobre os pontos que, uma vez ajustados, podem 
-                destravar seu faturamento e eficiência.
-              </p>
-            </div>
+    <section className="min-h-screen bg-strategic-blue flex items-center px-4 py-8">
+      <div className="max-w-4xl mx-auto w-full">
+        {/* Mobile-first layout */}
+        <div className="text-center space-y-8">
+          {/* Hero Title */}
+          <div className="space-y-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+              Agende aqui o seu{" "}
+              <span className="text-brand-primary">Diagnóstico Estratégico!</span>
+            </h1>
+            
+            <p className="text-lg sm:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+              Os especialistas da <strong className="text-brand-primary">MXMO</strong> que{" "}
+              <strong>transformaram operações de centenas de empresas</strong> se juntaram 
+              para acelerar o seu crescimento, otimizar sua operação e{" "}
+              <strong className="text-white">EXPANDIR sua empresa</strong>.
+            </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                variant="strategic-cta" 
-                size="xl"
-                onClick={scrollToDiagnostic}
-                className="w-full sm:w-auto"
-              >
-                INICIAR DIAGNÓSTICO GRATUITO
-              </Button>
-            </div>
-
-            {/* Trust indicators - Mobile optimized */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-sm text-neutral-500">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
-                <span>Sem cadastro demorado</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
-                <span>Resultado imediato</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
-                <span>100% gratuito</span>
-              </div>
-            </div>
+            <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
+              Aplique-se para um <strong className="text-white">Diagnóstico Estratégico de 15 minutos</strong> e 
+              receba um plano de ação personalizado para destravar seu negócio.
+            </p>
           </div>
 
-          {/* Visual */}
-          <div className="relative">
-            <div className="aspect-video rounded-2xl overflow-hidden shadow-strategic">
-              <img 
-                src={heroImage} 
-                alt="Visualização estratégica representando clareza empresarial"
-                className="w-full h-full object-cover"
-              />
+          {/* CTA Button */}
+          <div className="space-y-4">
+            <Button 
+              variant="strategic-cta" 
+              size="xl"
+              onClick={scrollToDiagnostic}
+              className="w-full max-w-md mx-auto text-lg font-semibold py-4 px-8 rounded-lg"
+            >
+              QUERO MEU DIAGNÓSTICO GRATUITO
+            </Button>
+            
+            {/* Urgency */}
+            <p className="text-brand-primary font-semibold text-lg">
+              🔥 Restam apenas 12 vagas este mês
+            </p>
+          </div>
+
+          {/* Trust indicators */}
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-neutral-400">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
+              <span>15 minutos</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
+              <span>100% gratuito</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
+              <span>Plano de ação personalizado</span>
             </div>
           </div>
         </div>

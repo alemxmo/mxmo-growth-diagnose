@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 
 const FinalCTASection = () => {
   const scrollToDiagnostic = () => {
@@ -10,50 +9,48 @@ const FinalCTASection = () => {
   };
 
   return (
-    <section className="strategic-section bg-gradient-section">
-      <div className="strategic-container">
-        <div className="max-w-3xl mx-auto text-center space-y-8">
-          <div className="space-y-6">
-            <h2 className="h2 text-neutral-800">
-              Pronto para encontrar seus{" "}
-              <span className="text-brand-primary">pontos de alavancagem</span>?
-            </h2>
-            
-            <p className="body-large text-neutral-600">
-              Milhares de empresários já descobriram os gargalos que estavam limitando seu crescimento. 
-              O seu diagnóstico estratégico está a apenas 2 minutos de distância.
-            </p>
-          </div>
+    <section className="py-16 px-4 bg-brand-primary">
+      <div className="max-w-4xl mx-auto text-center space-y-8">
+        {/* Header */}
+        <div className="space-y-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+            Pronto para transformar seu negócio?
+          </h2>
+          <p className="text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
+            Não perca mais tempo tentando descobrir sozinho onde está o problema. 
+            Deixe nossos especialistas identificarem os gargalos que estão travando seu crescimento.
+          </p>
+        </div>
 
-          <div className="space-y-4">
-            <Button 
-              variant="strategic-cta" 
-              size="xl"
-              onClick={scrollToDiagnostic}
-              className="group"
-            >
-              RECEBER MEU DIAGNÓSTICO AGORA
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            
-            <p className="text-sm text-neutral-500">
-              Última chamada para obter clareza estratégica gratuita
-            </p>
-          </div>
-
-          {/* Social proof numbers - Mobile optimized */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-neutral-200">
+        {/* CTA */}
+        <div className="space-y-6">
+          <Button 
+            variant="secondary" 
+            size="xl"
+            onClick={scrollToDiagnostic}
+            className="w-full max-w-md mx-auto bg-white text-brand-primary hover:bg-neutral-100 text-lg font-semibold py-4 px-8 rounded-lg"
+          >
+            AGENDAR DIAGNÓSTICO GRATUITO
+          </Button>
+          
+          {/* Urgency */}
+          <p className="text-white font-semibold text-lg">
+            ⏰ Últimas vagas disponíveis este mês
+          </p>
+          
+          {/* Social Proof Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto text-white/90">
             <div className="text-center">
-              <div className="text-2xl font-bold text-brand-primary">2 min</div>
-              <div className="text-sm text-neutral-600">Para completar</div>
+              <div className="text-2xl font-bold text-white">15 min</div>
+              <div className="text-sm">Duração do diagnóstico</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-brand-primary">3 gargalos</div>
-              <div className="text-sm text-neutral-600">Identificados</div>
+              <div className="text-2xl font-bold text-white">100%</div>
+              <div className="text-sm">Gratuito e sem compromisso</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-brand-primary">100%</div>
-              <div className="text-sm text-neutral-600">Gratuito</div>
+              <div className="text-2xl font-bold text-white">200+</div>
+              <div className="text-sm">Empresas já atendidas</div>
             </div>
           </div>
         </div>

@@ -1,52 +1,54 @@
-import { CheckCircle } from "lucide-react";
+import { Triangle } from "lucide-react";
 
 const PainSection = () => {
-  const painPoints = [
-    {
-      title: "Marketing sem ROI claro",
-      description: "Você investe em campanhas, mas não tem certeza do retorno real sobre o investimento?"
-    },
-    {
-      title: "Vendas inconsistentes", 
-      description: "Sua equipe de vendas tem altos e baixos, sem um processo previsível para fechar negócios?"
-    },
-    {
-      title: "Equipe desalinhada",
-      description: "A estratégia está na sua cabeça, mas a operação não executa com a agilidade e a direção que você espera?"
-    },
-    {
-      title: "Tecnologia como obstáculo",
-      description: "Suas ferramentas atuais mais geram trabalho manual do que eficiência e dados para tomada de decisão?"
-    }
-  ];
-
   return (
-    <section className="strategic-section bg-gradient-section">
-      <div className="strategic-container">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="h2 text-neutral-800 mb-4 sm:mb-6">
-            Sua empresa parece ter atingido um platô?
-          </h2>
-          <p className="body-large text-neutral-600 max-w-3xl mx-auto">
-            Se você se identifica com pelo menos 2 dos cenários abaixo, 
-            este diagnóstico foi feito especialmente para você.
-          </p>
-        </div>
+    <section className="py-16 px-4 bg-neutral-50">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center space-y-12">
+          {/* Section Title */}
+          <div className="space-y-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-strategic-blue">
+              Especialistas em eliminar problemas de crescimento
+            </h2>
+            <div className="w-16 h-1 bg-brand-primary mx-auto"></div>
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+              Nossa expertise em <strong>transformação de negócios</strong> foi construída ao longo de{" "}
+              <strong>mais de 10 anos</strong>. Hoje, com conhecimento técnico e especializado, 
+              multiplicamos nossa capacidade de solucionar problemas encontrados em negócios 
+              dos mais variados portes.
+            </p>
+            <p className="text-xl font-semibold text-strategic-blue">
+              Sua empresa sofre com problemas como estes?
+            </p>
+          </div>
 
-        <div className="grid gap-4 sm:gap-6 max-w-4xl mx-auto">
-          {painPoints.map((point, index) => (
-            <div key={index} className="pain-point group hover:border-brand-primary/20 transition-all duration-300">
-              <CheckCircle className="w-6 h-6 text-brand-primary flex-shrink-0 mt-1" />
-              <div className="space-y-2">
-                <h3 className="font-semibold text-neutral-800 group-hover:text-brand-primary transition-colors">
-                  {point.title}
-                </h3>
-                <p className="text-neutral-600 leading-relaxed">
-                  {point.description}
-                </p>
-              </div>
+          {/* Pain Points */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            <div className="flex items-start gap-3 p-4 bg-white rounded-lg border border-neutral-200">
+              <Triangle className="w-5 h-5 text-brand-primary fill-brand-primary flex-shrink-0 mt-1" />
+              <span className="text-neutral-700">Negócios estagnados, que pararam de se desenvolver</span>
             </div>
-          ))}
+            
+            <div className="flex items-start gap-3 p-4 bg-white rounded-lg border border-neutral-200">
+              <Triangle className="w-5 h-5 text-brand-primary fill-brand-primary flex-shrink-0 mt-1" />
+              <span className="text-neutral-700">Operações desestruturadas e ineficientes</span>
+            </div>
+            
+            <div className="flex items-start gap-3 p-4 bg-white rounded-lg border border-neutral-200">
+              <Triangle className="w-5 h-5 text-brand-primary fill-brand-primary flex-shrink-0 mt-1" />
+              <span className="text-neutral-700">Planos de crescimento não executados</span>
+            </div>
+            
+            <div className="flex items-start gap-3 p-4 bg-white rounded-lg border border-neutral-200">
+              <Triangle className="w-5 h-5 text-brand-primary fill-brand-primary flex-shrink-0 mt-1" />
+              <span className="text-neutral-700">Diminuição do market share</span>
+            </div>
+          </div>
+
+          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+            Aplique-se para um <strong className="text-strategic-blue">Diagnóstico Estratégico</strong> e 
+            obtenha uma avaliação e um plano de ação.
+          </p>
         </div>
       </div>
     </section>
